@@ -10,23 +10,51 @@ import {
 } from "react-bootstrap";
 import AddedToCartMessageComponent from "../Components/AddedToCartMessageComponent";
 import { Rating } from "react-simple-star-rating";
+import ImageZoom from "js-image-zoom";
+import { useEffect } from "react"; 
 
 const ProductDetailsPage = () => {
+  var options = {
+    // width: 400,
+    // zoomWidth: 500,
+    // fillContainer: true,
+    // zoomPosition: "bottom",
+    scale: 2,
+    offset: { vertical: 0 , horizontal: 0},
+
+  }
+  useEffect(() => {
+    new ImageZoom(document.getElementById("first"), options)
+    new ImageZoom(document.getElementById("second"), options)
+    new ImageZoom(document.getElementById("third"), options)
+    new ImageZoom(document.getElementById("fourth"), options)
+
+  })
   return (
     <Container>
       <AddedToCartMessageComponent />
       <Row className="mt-5">
-        <Col sm={4} md={4}>
-          <Image fluid src="/images/games-category.png" />
-          <Image fluid src="/images/monitors-category.png" />
-          <Image fluid src="/images/tablets-category.png" />
-          <Image fluid src="/images/games-category.png" />
+        <Col style={{zIndex: 1}} sm={4} md={4}>
+          <div id="first">
+            <Image crossOrigin="anonymous" fluid src="/images/games-category.png" />
+          </div><br/>
+          <div id="second">
+            <Image fluid src="/images/monitors-category.png" />
+          </div><br/>
+          <div id="third">
+            <Image fluid src="/images/tablets-category.png" />
+          </div><br/>
+          <div id="fourth">
+            <Image fluid src="/images/games-category.png" />
+          </div><br/>
         </Col>
         <Col sm={8} md={8}>
           <Row>
             <Col sm={8} md={8}>
               <ListGroup>
-                <ListGroup.Item><h1>Nombre del producto</h1></ListGroup.Item>
+                <ListGroup.Item>
+                  <h1>Nombre del producto</h1>
+                </ListGroup.Item>
                 <ListGroup.Item>
                   <Rating readonly size={20} initialValue={4} /> (1)
                 </ListGroup.Item>
@@ -64,46 +92,44 @@ const ProductDetailsPage = () => {
             <Col className="mt-5">
               <h5>Opiniones</h5>
               <ListGroup variant="flush">
-                <ListGroup.Item>
-                  entum gravida. In hac habitasse platea dictumst. Fusce v
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  la velit erat, et venenatis sem pretium s
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  ris et massa et nulla vulputate porta sed vel ante. Donec eget
-                  nisi ma
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  Mauris in nisi elementum, accumsan met
-                </ListGroup.Item>
+                {Array.from({ length: 10 }).map((item, idx) => (
+                  <ListGroup.Item key={idx}>
+                    Juan Perez <br />
+                    <Rating readonly size={20} initialValue={4} /> <br />
+                    20-09-2023 <br />
+                    Curabitur sed dui ullamcorper, cursus eros nec, aliquam
+                    ipsum. Vivamus non sem hendrerit,
+                  </ListGroup.Item>
+                ))}
               </ListGroup>
             </Col>
           </Row>
           <hr />
           Enviar tu opinion de este producto.
-          <Alert
-            variant="danger"
-          > Ingresa a tu cuenta antes de escribir una opinión
-
+          <Alert variant="danger">
+            {" "}
+            Ingresa a tu cuenta antes de escribir una opinión
           </Alert>
-          
           <Form>
-            <Form.Group className="mb-3" controlId="ExampleForm.ControlInput1">
-                <Form.Label>Correo Electrónico</Form.Label>
-                <Form.Control type="email" placeholder="nombre@ejemplo.com"/>
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="ExampleForm.ControlTextarea1">
-                <Form.Label>Ejemplo de texto</Form.Label>
-                <Form.Control as="textarea" roes={3}/>
+            <Form.Group
+              className="mb-3"
+              controlId="ExampleForm.ControlTextarea1"
+            >
+              <Form.Label>Escribe una opinión</Form.Label>
+              <Form.Control as="textarea" roes={3} />
             </Form.Group>
             <Form.Select aria-label="Default select example">
-                <option>Abre este menu de selección</option>
-                <option value="1">uno</option>
-                <option value="2">dos</option>
-                <option value="3">tres</option>
+              <option>Ranking</option>
+              <option value="5">5 (Muy bueno)</option>
+              <option value="4">4 (Bueno)</option>
+              <option value="3">3 (Promedio)</option>
+              <option value="2">2 (malo)</option>
+              <option value="1">1 (pésimo)</option>
             </Form.Select>
-            <Button variant="primary"> Enviar </Button>
+            <Button className="mb-3 mt-3" variant="success">
+              {" "}
+              Enviar{" "}
+            </Button>
           </Form>
         </Col>
       </Row>
