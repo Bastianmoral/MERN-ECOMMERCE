@@ -1,7 +1,13 @@
+import { Container, Row, Col, Form, Alert, ListGroup, Button } from "react-bootstrap";
+import CartItemComponent from "../../Components/CartItemComponent";
+
+
 const UserCartDetailsPage = () => {
-    return <p>This is a user cart details page</p>
+    return (
+        <h1>Hola</h1>
+    ) 
 }
 
 
 
-export default UserCartDetailsPage;
+export default UserCartDetailsPage

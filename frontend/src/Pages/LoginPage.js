@@ -30,7 +30,6 @@ const LoginPage = () => {
                 type="text"
                 placeholder="email@ejemplo.cl"
               />
-              <Form.Control.Feedback type="invalid"> Ingresa un correo electrónico válido</Form.Control.Feedback>
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>Contraseña</Form.Label>
@@ -39,22 +38,25 @@ const LoginPage = () => {
                 required
                 type="password"
                 placeholder="Contraseña"
-                minLength={6}
               />
-              <Form.Control.Feedback type="invalid"> Contraseña no válida</Form.Control.Feedback>
-              <Form.Text className="text-muted">
-                Contraseña tiene que tener mínimo 6 carácteres
-              </Form.Text>
             </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicCheckbox">
+              <Form.Check
+                name="doNotLogout"
+                type="checkbox"
+                label="No"
+              />
+            </Form.Group>
+
             <Row className="pb-2">
               <Col>
-              Ya tienes cuenta ?  
-              <Link to={"/login"}> Ingresa acá! </Link>
+              No tienes una cuenta con nostros ?  
+              <Link to={"/register"}> Registrate acá! </Link>
               </Col>
             </Row>
 
 
-            <Button type="submit">
+            <Button variant="primary" type="submit">
               <Spinner
                 as="span"
                 animation="border"
@@ -62,12 +64,9 @@ const LoginPage = () => {
                 role="status"
                 aria-hidden="true"
               />
-              Enviar</Button>
+              Iniciar Sesión</Button>
               <Alert className="mt-2" show={true} variant="danger">
-                Correo electrónico ya registrado
-              </Alert>
-              <Alert show={true} variant="info">
-                Usuario registrado exitosamente
+                Nombre de usuario o contraseña incorrectos
               </Alert>
           </Form>
         </Col>

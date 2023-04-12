@@ -1,5 +1,5 @@
 import { Row, Col, Container, Alert, ListGroup, Button} from "react-bootstrap"
-import { LinkContainer }  from "react-router-bootstrap"
+import { Link }  from "react-router-dom"
 import CartItemComponent from "../Components/CartItemComponent"
 
 const CartPage = () => {
@@ -25,11 +25,11 @@ const CartPage = () => {
                     Precio: <span className="fw-bold">$4.200</span>
                 </ListGroup.Item>
                 <ListGroup.Item>
-                    <LinkContainer to="/user/order-details">
+                    <Link to="/user/cart-details">
                     <Button type="button">
                         Cerrar Compra
                     </Button>
-                    </LinkContainer>
+                    </Link>
                 </ListGroup.Item>
             </ListGroup> 
         </Col>
