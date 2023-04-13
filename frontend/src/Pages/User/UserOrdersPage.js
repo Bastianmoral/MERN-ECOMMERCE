@@ -7,7 +7,6 @@ const UserOrdersPage = () => {
     <Row className="m-5">
       <Col sm={12} md={12}>
         <h1>Mis Pedidos</h1>
-        import Table from 'react-bootstrap/Table';
         <Table striped bordered hover>
           <thead>
             <tr>

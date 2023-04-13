@@ -22,7 +22,7 @@ import ProtectedRoutesComponent from "./Components/ProtectedRoutesComponent";
 //Protected user pages:
 import UserProfilePage from "./Pages/User/UserProfilePage";
 import UserOrderDetailsPage from "./Pages/User/UserOrderDetailsPage";
-import UserCartDetailsPage from "./Pages/User/UserOrderDetailsPage";
+import UserCartDetailsPage from "./Pages/User/UserCartDetailsPage";
 import UserOrdersPage from "./Pages/User/UserOrdersPage";
 
 //protected admin pages:
@@ -58,12 +58,21 @@ function App() {
           <Route element={<ProtectedRoutesComponent admin={false} />}>
             <Route path="/user" element={<UserProfilePage />} />
             <Route path="/user/my-orders" element={<UserOrdersPage />} />
+            <Route path="/user/chat" element={<UserChatComponent />} />
             <Route path="/user/cart-details" element={<UserCartDetailsPage />} />
             <Route path="/user/order-details" element={<UserOrderDetailsPage />} />
           </Route>
         {/*Admin protected routes:*/}
         <Route element={<ProtectedRoutesComponent admin={true} />}>
           <Route path="/admin/users" element={<AdminUsersPage />} />
+          <Route path="/admin/orders" element={<AdminOrdersPage />} />
+          <Route path="/admin/products" element={<AdminProductsPage />} />
+          <Route path="/admin/order-details" element={<AdminOrdersDetailsPage />} />
+          <Route path="/admin/edit-user" element={<AdminEditUserPage />} />
+          <Route path="/admin/edit-product" element={<AdminEditProductPage />} />
+          <Route path="/admin/create-new-product" element={<AdminCreateProductPage />} />
+          <Route path="/admin/chats" element={<AdminChatsPage />} />
+          <Route path="/admin/analytics" element={<AdminAnalyticsPage />} />
         </Route>
       </Routes>
       <FooterComponent />

@@ -19,7 +19,7 @@ const UserOrderDetailsPage = () => {
                     </Col>
                     <Col sm={6} md={6}>
                     <h2>Metodo de Pago</h2>
-                    <Form.Select disabled={false}>
+                    <Form.Select disabled>
                         <option value="pp">PayPal</option>
                         <option value="cod">Efectivo</option>
                         <option value="webpay">WebPay</option>
