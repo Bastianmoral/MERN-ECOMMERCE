@@ -2,7 +2,7 @@ import { LinkContainer } from "react-router-bootstrap"
 import { Nav, Navbar } from "react-bootstrap"
 
 
-const AdminLinkComponent = () => {
+const AdminLinksComponent = () => {
     return (
         <Navbar bg="light" variant="light">
 <Nav className="flex-column">
@@ -39,4 +39,4 @@ const AdminLinkComponent = () => {
 }
 
 
-export default AdminLinkComponent
+export default AdminLinksComponent
