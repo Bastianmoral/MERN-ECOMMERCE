@@ -6,12 +6,13 @@ connectDB()
 const categoryData = require("./categories")
 const productData = require("./products")
 const reviewData = require("./reviews")
+const userData = require("./users")
 
 
 const Category = require("../models/categoryModel")
 const Product = require("../models/ProductModel")
-const Review= require("../models/reviewsModel")
-
+const Review = require("../models/reviewsModel")
+const User = require("../models/UserModel")
 
 const importData = async () =>  {
     try {
@@ -22,6 +23,7 @@ const importData = async () =>  {
         await Category.collection.deleteMany({})
         await Product.collection.deleteMany({})
         await Review.collection.deleteMany({})
+        await User.collection.deleteMany({})
         
         await Category.insertMany(categoryData)
         const reviews = await Review.insertMany(reviewData)
@@ -31,8 +33,10 @@ const importData = async () =>  {
             })
             return {...product}
         })
-        
-        await Product.insertMany(productData)
+
+        await Product.insertMany(sampleProducts)
+        await User.insertMany(userData)
+
         
         console.log("Seeder data proceeded successfully")
         process.exit()
