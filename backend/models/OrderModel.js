@@ -11,7 +11,7 @@ const orderSchema = mongoose.Schema({
     },
     orderTotal: {
         itemsCount: {type: Number, required: true},
-        cartSubtotal: {type: Number, required: true}
+        cartSubtotal: {type: Number, required: true }
     },
     cartItems: [
         {
@@ -44,7 +44,7 @@ const orderSchema = mongoose.Schema({
     deliveredAt: {
         type: Date,
     }
-},{
+}, {
     timestamps: true,
 })
 
