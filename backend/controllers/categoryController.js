@@ -1,6 +1,15 @@
+const { accessSync } = require("fs");
+const Category = require("../models/categoryModel")
 
-const getCategories = (req, res) => {
-    res.send("<h1>Handling category routes, e.g. get all categories</h1>")
+
+const getCategories = async (req, res, next) => {
+    try {
+        const categories = await Category.find({}).sort({name: "asc"}).orFail()
+        res.json(categories)
+
+    } catch(error) {
+        next(error)
+    }
 }
 
 module.exports = getCategories;
